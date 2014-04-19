@@ -1,0 +1,164 @@
+      @font-face {
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 400;
+        src: local(Raleway), url(http://themes.googleusercontent.com/static/fonts/raleway/v7/IczWvq5y_Cwwv_rBjOtT0w.woff) format(woff);
+      }
+      @font-face {
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 700;
+        src: local(Raleway Bold), local(Raleway-Bold), url(http://themes.googleusercontent.com/static/fonts/raleway/v7/JbtMzqLaYbbbCL9X6EvaIxsxEYwM7FgeyaSgU71cLG0.woff) format(woff);
+      }
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        font-family: Raleway;
+        color: rgb(56, 56, 56);
+      }
+      body {
+        background-color: transparent;
+        -webkit-transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+        -webkit-transform-style: preserve-3d;
+      }
+      #wrapper {
+        position: relative;
+        min-height: 900px;
+		margin-bottom:100px;
+      }
+      @media screen and (min-width: 1200px) {
+        #wrapper {
+          width: 100%;
+        }
+      }
+      @media screen and (max-width: 1200px) {
+        #wrapper {
+          width: 1200px;
+        }
+      }
+      a {
+        text-decoration: none;
+      }
+      .logo {
+        position: absolute;
+        padding: 10px;
+        font-size: 20px;
+        left: 300px;
+      }
+      .logo img {
+        position: absolute;
+        top: -20px;
+        left: -92px;
+        width: 92px;
+        height: 85px;
+      }
+      .logo strong {
+        color: rgb(51, 149, 143);
+        font-size: 24px;
+      }
+      .gray-line {
+        position: absolute;
+        background-color: rgb(229, 229, 229);
+        width: 100%;
+        height: 85px;
+        top: 85px;
+      }
+      nav {
+        position: absolute;
+        left: 550px;
+      }
+      nav a:hover {
+        color: rgb(138, 209, 206);
+      }
+      nav a {
+        line-height: 27px;
+        font-size: 14px;
+        padding: 0px 30px;
+        color: rgb(56, 56, 56);
+        -webkit-transition: color 0.5s ease 0s;
+        transition: color 0.5s ease 0s;
+        white-space: nowrap;
+      }
+      nav .current-page {
+        color: rgb(59, 186, 181);
+      }
+      nav ul ul {
+        display: none;
+      }
+      nav ul li:hover > ul {
+        display: block;
+      }
+      nav ul {
+        padding: 0px 20px;
+        list-style: none;
+        position: relative;
+        display: inline-table;
+      }
+      nav ul li {
+        padding: 10px 0px;
+        float: left;
+      }
+      nav ul ul {
+        padding: 0px;
+        position: absolute;
+        top: 100%;
+      }
+      nav ul ul li {
+        float: none;
+        position: relative;
+      }
+      
+      .justify {
+        text-align: justify;
+      }
+      hr {
+        border-width: 0px 1px 1px;
+        border-right-style: solid;
+        border-bottom-style: solid;
+        border-left-style: solid;
+        border-right-color: rgb(229, 125, 34);
+        border-bottom-color: rgb(229, 125, 34);
+        border-left-color: rgb(229, 125, 34);
+      }
+	  .gray-hr{
+        border-width: 1px 1px 1px;
+        border-right-style: solid;
+        border-bottom-style: solid;
+        border-left-style: solid;
+        border-right-color: rgb(229, 229, 229);
+        border-bottom-color: rgb(229, 229, 229);
+        border-left-color: rgb(229, 229, 229);
+	  }
+      footer {
+        width: 100%;
+        height: 150px;
+        background-color: rgb(59, 186, 181);
+        bottom: 0px;
+      }
+      .footer-item {
+        color: rgb(229, 229, 229);
+        position: relative;
+        width: 200px;
+        float: left;
+        left: 100px;
+        margin-left: 100px;
+        padding: 40px;
+        font-size: 12px;
+      }
+      footer div div {
+        position: absolute;
+        left: -20px;
+        top: 30px;
+        width: 45px;
+        height: 45px;
+        background-color: rgb(247, 200, 14);
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+      }
+      footer div div img {
+        width: 35px;
+        height: 35px;
+      }
