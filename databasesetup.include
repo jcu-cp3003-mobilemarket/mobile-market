@@ -1,0 +1,11 @@
+<?php
+
+$host = "manning3.jcu.edu.au";
+
+$user = "cp3003student";
+
+$passwd = "cp3003";
+
+$database = "xxxx";
+
+?>

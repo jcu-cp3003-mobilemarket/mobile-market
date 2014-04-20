@@ -7,70 +7,21 @@
     <meta name="generator" content="Google Web Designer 1.0.4.0305">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <style type="text/css">
-      .product-list {
-        width: 700px;
-        min-height: 220px;
-        position: relative;
-        left: 200px;
-        top: 240px;
-      }
-      .product-item {
-        font-size: 14px;
-        min-height: 220px;
-      }
-      .product-item img {
-        position: absolute;
-        width: 150px;
-        height: 200px;
-      }
-      .product-item h1 {
-        margin: 20px 0px 0px 180px;
-        color: rgb(229, 125, 34);
-        font-size: 18px;
-      }
-      .product-item p {
-        margin: 20px 0px 0px 180px;
-      }
-      .product-item a {
-        position: relative;
-        padding: 10px;
-        font-size: 16px;
-        color: rgb(254, 253, 253);
-        border: 1px solid rgb(255, 255, 255);
-      }
-      .product-buttons {
-        float: right;
-      }
-      .add-cart {
-        float: right;
-        background-color: rgb(146, 205, 0);
-      }
-      .wish-list {
-        float: right;
-        background-color: rgb(247, 200, 14);
-      }
-      .view {
-        left: 180px;
-        top: 100px;
-        background-color: rgb(51, 153, 204);
-      }
-      .favourite {
-        float: right;
-        text-align: right;
-        background-color: rgb(205, 185, 156);
-      }
-      .favourite img {
-        z-index: 1;
-        position: relative;
-        float: left;
-        width: 25px;
-        height: 25px;
-      }
     </style>
+
   </head>
   
   <body>
-    <div id="wrapper" class="">
+
+<header>
+		<span class="plus">+</span> &nbsp; My Account
+		<ul>
+			<li><a href="#">Sign in</a></li>
+			<li><a href="#">Register</a></li>
+		</ul>
+</header>    
+  
+    <div id="wrapper">
       <div class="gray-line">
         <div class="logo">
           <a href="#">
@@ -109,67 +60,91 @@
         </nav>
       </div>
       <div class="product-list">
-        <div class="product-item">
-          <img src="images/phone.png" alt="Phone">
-          	<h1>
-                	Product Name 1
-                </h1>
-
-          <p>Price: $1000</p>
-          <div class="product-buttons">
-            <a href="#" class="add-cart">Add to Cart</a>
-            <br>
-            <a href="#" class="wish-list">Add to Wish List</a>
-            <br>
-            <a href="#" class="favourite">Favourite
-              <br>
-              <img src="images/star.png" alt="">1234</a>
-          </div>
-          <a href="#" class="view">View More Details &gt;&gt;</a>
-          <br>
-        </div>
-        <hr>
-        <div class="product-item">
-          <img src="images/phone.png" alt="Phone">
-          	<h1>
-                	Product Name 2
-                </h1>
-
-          <p>Price: $1000</p>
-          <div class="product-buttons">
-            <a href="#" class="add-cart">Add to Cart</a>
-            <br>
-            <a href="#" class="wish-list">Add to Wish List</a>
-            <br>
-            <a href="#" class="favourite">Favourite
-              <br>
-              <img src="images/star.png" alt="">1234</a>
-          </div>
-          <a href="#" class="view">View More Details &gt;&gt;</a>
-          <br>
-        </div>
-        <hr>
-                <div class="product-item">
-          <img src="images/phone.png" alt="Phone">
-          	<h1>
-                	Product Name 2
-                </h1>
-
-          <p>Price: $1000</p>
-          <div class="product-buttons">
-            <a href="#" class="add-cart">Add to Cart</a>
-            <br>
-            <a href="#" class="wish-list">Add to Wish List</a>
-            <br>
-            <a href="#" class="favourite">Favourite
-              <br>
-              <img src="images/star.png" alt="">1234</a>
-          </div>
-          <a href="#" class="view">View More Details &gt;&gt;</a>
-          <br>
-        </div>
-        <hr>
+  		  <table class="product-item">
+          <tr>
+          	<td class="product-image"><img src="images/phone.png" alt="Phone"/></td>
+          	<td class="product-description">
+          	<h1>Product Name 1</h1>
+	        <p>Price: $1000</p>
+			<a href="#" class="view">View More Details &gt;&gt;</a>
+            </td>
+          	<td class="product-buttons">
+        	    <a href="#" class="add-cart">Add to Cart</a><br/>
+	            <a href="#" class="wish-list">Add to Wish List</a><br/>
+        	    <a href="#" class="favourite">Favourite 	<br/>
+                <img src="images/star.png" alt="">1234</a>
+            </td>
+          </tr>
+          </table>
+          <hr />	
+          <table class="product-item">
+          <tr>
+          	<td class="product-image"><img src="images/phone.png" alt="Phone"/></td>
+          	<td class="product-description">
+          	<h1>Product Name 1</h1>
+	        <p>Price: $1000</p>
+			<a href="#" class="view">View More Details &gt;&gt;</a>
+            </td>
+          	<td class="product-buttons">
+        	    <a href="#" class="add-cart">Add to Cart</a><br/>
+	            <a href="#" class="wish-list">Add to Wish List</a><br/>
+        	    <a href="#" class="favourite">Favourite 	<br/>
+                <img src="images/star.png" alt="">1234</a>
+            </td>
+          </tr>
+          </table>
+          <hr/>
+          <table class="product-item">
+          <tr>
+          	<td class="product-image"><img src="images/phone.png" alt="Phone"/></td>
+          	<td class="product-description">
+          	<h1>Product Name 1</h1>
+	        <p>Price: $1000</p>
+			<a href="#" class="view">View More Details &gt;&gt;</a>
+            </td>
+          	<td class="product-buttons">
+        	    <a href="#" class="add-cart">Add to Cart</a><br/>
+	            <a href="#" class="wish-list">Add to Wish List</a><br/>
+        	    <a href="#" class="favourite">Favourite 	<br/>
+                <img src="images/star.png" alt="">1234</a>
+            </td>
+          </tr>
+          </table>
+          <hr/>
+          <table class="product-item">
+          <tr>
+          	<td class="product-image"><img src="images/phone.png" alt="Phone"/></td>
+          	<td class="product-description">
+          	<h1>Product Name 1</h1>
+	        <p>Price: $1000</p>
+			<a href="#" class="view">View More Details &gt;&gt;</a>
+            </td>
+          	<td class="product-buttons">
+        	    <a href="#" class="add-cart">Add to Cart</a><br/>
+	            <a href="#" class="wish-list">Add to Wish List</a><br/>
+        	    <a href="#" class="favourite">Favourite 	<br/>
+                <img src="images/star.png" alt="">1234</a>
+            </td>
+          </tr>
+          </table>
+          <table class="product-item">
+          <tr>
+          	<td class="product-image"><img src="images/phone.png" alt="Phone"/></td>
+          	<td class="product-description">
+          	<h1>Product Name 1</h1>
+	        <p>Price: $1000</p>
+			<a href="#" class="view">View More Details &gt;&gt;</a>
+            </td>
+          	<td class="product-buttons">
+        	    <a href="#" class="add-cart">Add to Cart</a><br/>
+	            <a href="#" class="wish-list">Add to Wish List</a><br/>
+        	    <a href="#" class="favourite">Favourite 	<br/>
+                <img src="images/star.png" alt="">1234</a>
+            </td>
+          </tr>
+          </table>
       </div>
+
     </div>
           <footer>
         <div class="footer-item">

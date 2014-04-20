@@ -1,17 +1,27 @@
-<!DOCTYPE html>
-<html>
-  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
   <head data-gwd-animation-mode="proMode">
+
     <title>The Mobile Market</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="generator" content="Google Web Designer 1.0.4.0305">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <style type="text/css">
+
+      
     </style>
   </head>
   
   <body>
-    <div id="wrapper" class="">
+<header>
+		<span class="plus">+</span> &nbsp; My Account
+		<ul>
+			<li><a href="#">Sign in</a></li>
+			<li><a href="#">Register</a></li>
+		</ul>
+</header>    
+  
+    <div id="wrapper">
       <div class="gray-line">
         <div class="logo">
           <a href="#">
@@ -49,45 +59,10 @@
           </ul>
         </nav>
       </div>
-      <div class="page-content">
-        	<h1>
-        	Feedback
-        </h1>
-
-        <hr>
-        <p>	<span style="font-size:26px;">H</span>ello bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-        <form name="" class="feedback">
-        <table>
-        <tr>
-        	<td><input type="text" placeholder="Name"></td>
-            <td rowspan="3"><textarea placeholder="Message"></textarea></td>
-        </tr>
-        <tr>
-            <td><input type="text" placeholder="Email"></td>
-        </tr>
-        <tr>
-        
-            <td><input type="text" placeholder="Subject"></td>
-        </tr>
-        <tr>
-        	<td colspan="2" class="feedback-submit"><a href="#">Send</a></td>
-        </tr>
-        <tr>
-        	<td colspan="2">
-            	<a href="#"><img class="social-share" src="images/fb.png" alt=""/></a>
-                <a href="#"><img class="social-share" src="images/g-plus.png" alt=""/></a>
-                <a href="#"><img class="social-share" src="images/twitter.png" alt=""/></a>
-                <br/><br/>
-                <b>Cell</b> : 123-456-7890<br/>
-				﻿<b>Email</b> : info@mysite.com
-
-            </td>
-        </tr>
-       </table>
-        </form>
-        <hr class="gray-hr"/>
-      </div>
+      
+      
     </div>
+    
       <footer>
         <div class="footer-item">
           <div>
@@ -106,6 +81,7 @@
           <div>
             <img src="images/follow.png" alt="">
           </div>	<strong>Follow me</strong>
+
         </div>
       </footer>    
   </body>

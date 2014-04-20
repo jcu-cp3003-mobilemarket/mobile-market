@@ -10,22 +10,32 @@
         font-weight: 700;
         src: local(Raleway Bold), local(Raleway-Bold), url(http://themes.googleusercontent.com/static/fonts/raleway/v7/JbtMzqLaYbbbCL9X6EvaIxsxEYwM7FgeyaSgU71cLG0.woff) format(woff);
       }
+	  .loaded{
+		opacity:1;
+	  }
       html, body {
         width: 100%;
         height: 100%;
         margin: 0px;
         font-family: Raleway;
         color: rgb(56, 56, 56);
+
       }
       body {
         background-color: transparent;
         -webkit-transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
         -webkit-transform-style: preserve-3d;
+			  -webkit-transition:all 0.26s ease-out;
+    -moz-transition:all 0.26s ease-out;
+    -ms-transition:all 0.26s ease-out;
+    -o-transition:all 0.26s ease-out;
+    transition:all 0.26s ease-out;
+
       }
       #wrapper {
         position: relative;
-        min-height: 900px;
-		margin-bottom:100px;
+        min-height: 400px;
+		margin-bottom:300px;
       }
       @media screen and (min-width: 1200px) {
         #wrapper {
@@ -131,6 +141,7 @@
         border-left-color: rgb(229, 229, 229);
 	  }
       footer {
+		  position:relative;
         width: 100%;
         height: 150px;
         background-color: rgb(59, 186, 181);
@@ -162,3 +173,390 @@
         width: 35px;
         height: 35px;
       }
+	  
+	  
+	  	header {
+			z-index:3;
+	display: block;
+	position:fixed;
+	top:0px;
+	right:10px;
+	text-align: right;
+	padding: 10px 10px;
+	height: 25px;
+	width: 100px;
+	cursor: pointer;
+	border: 1px solid rgb(56,56,56);
+	font-size:13px;
+	background-color:rgb(56,56,56);
+	color:rgb(225,225,225);
+	border-radius:0 0 10px 10px;
+	}
+	header a{
+	color:rgb(225,225,225);
+	-webkit-transition: color 0.5s ease 0s;
+	transition: color 0.5s ease 0s;
+	}
+	header a:hover{
+	color: rgb(138, 209, 206);
+	}
+	header:hover{
+	border-radius:0px;
+	}
+	header .plus {
+	display: inline-block;
+	font-size:20px;
+	-webkit-transition: .3s ease-in-out;
+	-moz-transition: .3s ease-in-out;
+	-o-transition: .3s ease-in-out;
+	}
+	header:hover ul {
+	display: inline-block;
+	}
+	
+	header:hover .plus {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	}
+	
+	header ul {
+	display: none;
+	width: 100px;
+	background-color:rgb(56,56,56);
+	padding: 10px 10px;
+	margin-left: -11px;
+	margin-top: 10px;
+	border: 1px solid rgb(56,56,56);
+	box-shadow: 0px 13px 25px rgba(0,0,0, 0.2);
+	border-radius:0 0 10px 10px;
+	}
+	
+	header ul li {
+	list-style-type: none;
+	display: block;
+	font-size: 13px;
+	height: 20px;
+	padding: 5px 0;
+	}
+		.right-align{
+		text-align:right;
+	}
+/************************ End For EVERY PAGE *********************************/
+/************************ start for HOME PAGE ********************************/
+      .circle {
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        background-color: rgb(59, 186, 181);
+      }
+      .home-page-leftside {
+        position: absolute;
+        top: 200px;
+        left: 200px;
+        width: 450px;
+        height: 429px;
+      }
+      .home-page-rightside {
+        position: absolute;
+        top: 200px;
+        left: 700px;
+        width: 450px;
+        color: rgb(140, 139, 139);
+        font-size: 36px;
+        font-weight: bold;
+      }
+      .home-page-rightside strong {
+        font-size: 85px;
+      }
+      .promotion-display {
+        width: 420px;
+        position: absolute;
+        top: 400px;
+        left: 700px;
+      }
+      .promotion-display h1 {
+        padding: 0px 0px 0px 70px;
+        color: rgb(229, 125, 34);
+        font-size: 24px;
+      }
+      .promotion-display p {
+        padding: 0px 10px 0px 70px;
+      }
+      .star {
+        position: absolute;
+        width: 40px;
+        height: 35px;
+        background-color: rgb(229, 125, 34);
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+      }
+      .star img {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: -15px;
+        top: -15px;
+      }
+      
+/************************ end for HOME PAGE ********************************/
+/************************ start for FEEDBACK PAGE **************************/
+      .page-content {		
+		width: 900px;
+        min-height: 500px;
+        position: relative;
+        left: 200px;
+        top: 240px;
+	  }
+      .page-content h1 {
+        color: rgb(140, 139, 139);
+        font-size: 80px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+      }
+      .page-content p {
+        padding: 0px 250px;
+        text-align: justify;
+      }
+      .feedback table{
+        padding-left:240px;
+      }
+      .feedback-submit a{
+      	background-color:rgb(247, 200, 14);
+        padding:5px 10px;
+        color:rgb(254, 253, 253);
+        float:right;
+      }
+      input[type="text"],input[type="email"],input[type="password"],input[type="tel"],input[type="number"] {
+      	height:30px;
+      	font-size:16px;
+        font-family: Raleway;
+        color: rgb(56, 56, 56);
+        background-color: rgb(229, 229, 229);
+        padding: 5px;
+		margin: 0px 0px 5px;
+		box-sizing: border-box;
+        border: 0px solid transparent;
+      }
+      textarea {
+      	width:200px;
+        height:120px;
+      	font-size:16px;
+        font-family: Raleway;
+        color: rgb(56, 56, 56);
+        background-color: rgb(229, 229, 229);
+        padding: 5px;
+		margin: 0px 0px 5px;
+		box-sizing: border-box;
+        border: 0px solid transparent;
+        resize:none;
+      }
+	  .social-share{
+		  width:30px;
+		  height:30px;
+	  }
+/************************ end for FEEDBACK PAGE **************************/
+/************************ start for PRODUCT PAGE *************************/
+      .product-list {
+        width: 700px;
+		position:relative;
+        min-height: 220px;
+        left: 200px;
+        top: 240px;
+	  }
+	  .product-image img{
+		  width:200px;
+		  height:200px;
+	  }
+	  .product-description{
+		  vertical-align:top;
+		width:400px;
+	  }
+      .product-description h1 {
+		margin: 20px 10px;  
+        color: rgb(229, 125, 34);
+        font-size: 18px;
+      }
+      .product-description p {
+        margin: 20px 10px;
+      }
+      .product-description .view{
+		position:relative;
+		margin-left:10px;
+		top:120px;
+        background-color: rgb(51, 153, 204);
+	  }
+      .product-item a {
+        margin: 20px 10px;
+        padding: 10px;
+        font-size: 16px;
+        color: rgb(254, 253, 253);
+        border: 1px solid rgb(255, 255, 255);
+      }
+      .product-buttons {
+		  white-space:nowrap;
+        float: right;
+      }
+      .add-cart {
+        float: right;
+        background-color: rgb(146, 205, 0);
+      }
+      .wish-list {
+        float: right;
+        background-color: rgb(247, 200, 14);
+      }
+
+      .favourite {
+        float: right;
+        text-align: right;
+        background-color: rgb(205, 185, 156);
+      }
+      .favourite img {
+        z-index: 1;
+        position: relative;
+        float: left;
+        width: 25px;
+        height: 25px;
+      }
+/************************ end for PRODUCT PAGE *************************/
+
+/************************** PERSONAL INFORMATION PAGE ******************/
+	.personal-content{
+		position:relative;
+		width:800px;
+		left:220px;
+		top:240px;
+	}
+	.personal-image{
+		background-color:rgb(146, 205, 0);
+		width:800px;
+		height:150px;
+	}
+	.personal-image img{
+		position:absolute;
+		width:120px;
+		height:120px;
+		border-radius:50%;
+		margin-left:100px;
+		margin-top:15px;
+	}
+	.gold-line{
+		position:absolute;
+		left:200px;
+		top: 50px;
+		width:600px;
+		height:50px;
+		background-color:rgb(247, 200, 14);
+	}
+	.vertical-gray-line{
+		position:relative;
+		width:50px;
+		height:900px;
+		background-color:rgb(229, 229, 229);
+		left:135px;
+	}
+	.personal-info{
+		position:absolute;
+		top:200px;
+		left:185px;
+	}
+	.personal-info td{
+		padding:10px;
+	}
+	.personal-info .gold-bg{
+		background-color:rgb(247, 200, 14);
+		font-size:24px;
+	}
+	.personal-info .blue-bg{
+		background-color:rgb(86, 186, 236);
+		font-size:24px;
+	}
+	select, option{
+      	height:30px;
+      	font-size:16px;
+        font-family: Raleway;
+        color: rgb(56, 56, 56);
+        background-color: rgb(229, 229, 229);
+        padding: 5px;
+		margin: 0px 0px 5px;
+		box-sizing: border-box;
+        border: 0px solid transparent;
+	}
+	.personal-info input[type=submit] {
+		cursor:pointer;
+        margin-left:300px;
+        padding: 10px;
+        font-size: 16px;
+		font-weight:bold;
+        color: rgb(56, 56,56);
+        border: 1px solid rgb(255, 255, 255);
+      }
+/**************************end of PERSONAL INFORMATION PAGE ******************/
+
+/*****************************CHECKOUT PAGE**********************************/
+.shopping-cart{
+		width:800px;
+		position:relative;
+		margin-left:230px;
+		top:230px;
+		min-height:300px;
+	}
+	.cart-item{
+		width:100%;
+		height:50px;
+		color:rgb(225,225,225);
+		margin:10px;
+	}
+	.cart-item td{
+		padding:10px;
+	}
+	.total-amount{
+		padding:10px;
+		height:30px;
+		width:200px;
+		float:right;
+		text-align:right;
+	}
+	.cart-yellow-bg{
+		background-color:rgb(247, 200, 14);
+		color:rgb(56,56,56);
+	}
+	.cart-blue-bg{
+		background-color:rgb(51, 153, 204);
+	}
+	.cart-gray-bg{
+		background-color:rgb(229, 229, 229);
+		color:rgb(56,56,56);
+	}
+	.cart-green-bg{
+		background-color:rgb(146, 205, 0);
+	}
+	.shopping-cart input[type=button]{
+		cursor:pointer;
+        padding: 10px;
+        font-size: 16px;
+		font-weight:bold;
+        color: rgb(225,225,225);
+		background-color:rgb(255,0,0);
+        border: 1px solid rgb(255, 255, 255);
+		margin:10px;
+	}
+	.shopping-cart input[type=submit]{
+		background-color:rgb(59, 186, 181);
+		cursor:pointer;
+        padding: 10px;
+        font-size: 16px;
+		font-weight:bold;
+        color: rgb(255,255,255);
+		border: 1px solid rgb(255, 255, 255);
+		float:right;
+	}
+/***************************end of CHECKOUT PAGE**********************************/
+/************************** CARD INFORMATION PAGE ******************************/
+
+
+/**************************end of CARD INFORMATION PAGE ******************************/
