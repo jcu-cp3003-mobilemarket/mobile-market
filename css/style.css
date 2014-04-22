@@ -10,9 +10,6 @@
         font-weight: 700;
         src: local(Raleway Bold), local(Raleway-Bold), url(http://themes.googleusercontent.com/static/fonts/raleway/v7/JbtMzqLaYbbbCL9X6EvaIxsxEYwM7FgeyaSgU71cLG0.woff) format(woff);
       }
-	  .loaded{
-		opacity:1;
-	  }
       html, body {
         width: 100%;
         height: 100%;
@@ -23,19 +20,12 @@
       }
       body {
         background-color: transparent;
-        -webkit-transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-        -webkit-transform-style: preserve-3d;
-			  -webkit-transition:all 0.26s ease-out;
-    -moz-transition:all 0.26s ease-out;
-    -ms-transition:all 0.26s ease-out;
-    -o-transition:all 0.26s ease-out;
-    transition:all 0.26s ease-out;
-
       }
       #wrapper {
         position: relative;
         min-height: 400px;
 		margin-bottom:300px;
+		margin-top:0px;
       }
       @media screen and (min-width: 1200px) {
         #wrapper {
@@ -98,6 +88,9 @@
       }
       nav ul li:hover > ul {
         display: block;
+		-webkit-animation: moveFromRight .6s ease both;
+		-moz-animation: moveFromRight .6s ease both;
+		animation: moveFromRight .6s ease both;
       }
       nav ul {
         padding: 0px 20px;
@@ -131,7 +124,7 @@
         border-bottom-color: rgb(229, 125, 34);
         border-left-color: rgb(229, 125, 34);
       }
-	  .gray-hr{
+	  hr .gray-hr{
         border-width: 1px 1px 1px;
         border-right-style: solid;
         border-bottom-style: solid;
@@ -173,14 +166,17 @@
         width: 35px;
         height: 35px;
       }
-	  
+	  footer a img{
+		  width:25px;
+		  height:25px;
+	  }
 	  
 	  	header {
-			z-index:3;
-	display: block;
 	position:fixed;
 	top:0px;
 	right:10px;
+	z-index:3;
+	display: block;
 	text-align: right;
 	padding: 10px 10px;
 	height: 25px;
@@ -197,36 +193,22 @@
 	-webkit-transition: color 0.5s ease 0s;
 	transition: color 0.5s ease 0s;
 	}
-	header a:hover{
-	color: rgb(138, 209, 206);
-	}
-	header:hover{
-	border-radius:0px;
-	}
-	header .plus {
-	display: inline-block;
-	font-size:20px;
-	-webkit-transition: .3s ease-in-out;
-	-moz-transition: .3s ease-in-out;
-	-o-transition: .3s ease-in-out;
+	header a:hover{	
+		color: rgb(138, 209, 206);
 	}
 	header:hover ul {
-	display: inline-block;
+	display: block;
+	-webkit-animation: moveFromTop .6s ease both;
+	-moz-animation: moveFromTop .6s ease both;
+	animation: moveFromTop .6s ease both;
 	}
-	
-	header:hover .plus {
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	-o-transform: rotate(45deg);
-	}
-	
 	header ul {
-	display: none;
+	display:none;
 	width: 100px;
 	background-color:rgb(56,56,56);
 	padding: 10px 10px;
 	margin-left: -11px;
-	margin-top: 10px;
+	margin-top: -20px;
 	border: 1px solid rgb(56,56,56);
 	box-shadow: 0px 13px 25px rgba(0,0,0, 0.2);
 	border-radius:0 0 10px 10px;
@@ -239,9 +221,40 @@
 	height: 20px;
 	padding: 5px 0;
 	}
+@-webkit-keyframes moveFromTop {
+	from { -webkit-transform: translateY(-100%); }
+}
+@-webkit-keyframes moveToTop {
+	to { -webkit-transform: translateY(-100%); }
+}	
 		.right-align{
 		text-align:right;
 	}
+      input[type="text"],input[type="email"],input[type="password"],input[type="tel"],input[type="number"] {
+      	height:30px;
+      	font-size:16px;
+        font-family: Raleway;
+        color: rgb(56, 56, 56);
+        background-color: rgb(229, 229, 229);
+        padding: 5px;
+		margin: 0px 0px 5px;
+		box-sizing: border-box;
+        border: 0px solid transparent;
+      }
+      textarea {
+      	width:200px;
+        height:120px;
+      	font-size:16px;
+        font-family: Raleway;
+        color: rgb(56, 56, 56);
+        background-color: rgb(229, 229, 229);
+        padding: 5px;
+		margin: 0px 0px 5px;
+		box-sizing: border-box;
+        border: 0px solid transparent;
+        resize:none;
+      }
+	
 /************************ End For EVERY PAGE *********************************/
 /************************ start for HOME PAGE ********************************/
       .circle {
@@ -305,15 +318,17 @@
 /************************ end for HOME PAGE ********************************/
 /************************ start for FEEDBACK PAGE **************************/
       .page-content {		
-		width: 900px;
+	   position:relative;
+		width: 800px;
         min-height: 500px;
-        position: relative;
         left: 200px;
         top: 240px;
+		margin:0px;
 	  }
       .page-content h1 {
         color: rgb(140, 139, 139);
         font-size: 80px;
+		margin:0px;
         font-style: normal;
         font-variant: normal;
         font-weight: normal;
@@ -330,30 +345,6 @@
         padding:5px 10px;
         color:rgb(254, 253, 253);
         float:right;
-      }
-      input[type="text"],input[type="email"],input[type="password"],input[type="tel"],input[type="number"] {
-      	height:30px;
-      	font-size:16px;
-        font-family: Raleway;
-        color: rgb(56, 56, 56);
-        background-color: rgb(229, 229, 229);
-        padding: 5px;
-		margin: 0px 0px 5px;
-		box-sizing: border-box;
-        border: 0px solid transparent;
-      }
-      textarea {
-      	width:200px;
-        height:120px;
-      	font-size:16px;
-        font-family: Raleway;
-        color: rgb(56, 56, 56);
-        background-color: rgb(229, 229, 229);
-        padding: 5px;
-		margin: 0px 0px 5px;
-		box-sizing: border-box;
-        border: 0px solid transparent;
-        resize:none;
       }
 	  .social-share{
 		  width:30px;
@@ -422,6 +413,19 @@
         width: 25px;
         height: 25px;
       }
+	  #product-add-to-cart{
+		  position:absolute;
+		  top:180px;
+		  left:100px;
+		  background-color:rgb(229,229,229);
+		  width:500px;
+		  height:100px;
+		  padding:10px;
+	  }
+	  #product-add-to-cart input[type=submit]{
+		  padding:10px;
+		  cursor:pointer;
+	  }
 /************************ end for PRODUCT PAGE *************************/
 
 /************************** PERSONAL INFORMATION PAGE ******************/
@@ -455,9 +459,20 @@
 	.vertical-gray-line{
 		position:relative;
 		width:50px;
-		height:900px;
+		height:1100px;
 		background-color:rgb(229, 229, 229);
 		left:135px;
+	}
+	#personal-info-error{
+		background-color:rgb(255,0,0);
+		position:relative; 
+		width:780px;
+		height:30px;
+		top:200px;
+		left:220px;
+		text-align:center;
+		color:white;
+		padding:10px;
 	}
 	.personal-info{
 		position:absolute;
@@ -556,7 +571,163 @@
 		float:right;
 	}
 /***************************end of CHECKOUT PAGE**********************************/
-/************************** CARD INFORMATION PAGE ******************************/
+/************************** LOGIN PAGE ******************************/
 
+	.login{
+		background:url(../images/login.png);
+		width:310px;
+		height:423px;
+		background-size:100%;
+		background-repeat:no-repeat;
+		position:relative;
+		top:220px;
+		margin-left:auto;
+		margin-right:auto;
+		text-align:center;
+		color:white;
+		-moz-animation:loginanimation 5s infinite; 
+		-webkit-animation:loginanimation 5s infinite;
+	}
+.login-error{
+		-moz-animation:loginanimation 1s infinite; 
+		-webkit-animation:loginanimation 1s infinite;
 
-/**************************end of CARD INFORMATION PAGE ******************************/
+}
+.error-msg{
+	position:relative;
+	width:300px;
+	margin-left:auto;
+	margin-right:auto;
+	top:230px;
+	padding:10px;
+	text-align:center;
+	background-color:red;
+	color:white;
+	border-radius:20px 0 20px 0;
+}
+@-moz-keyframes loginanimation /* Firefox */
+	{
+	0%   {background:url(../images/login.png);}
+	50%   {background:url(../images/loginred.png);}
+	100%   {background:url(../images/login.png);}
+	}
+	 
+@-webkit-keyframes loginanimation /* Firefox */
+	{
+	0%   {background:url(../images/login.png);}
+	50%   {background:url(../images/loginred.png);}
+	100%   {background:url(../images/login.png);}
+	}	
+	.login input,.login label{
+		position:relative;
+		top:100px;
+		margin-top:20px;
+	}
+	.login input[type=submit]{
+		margin-top:40px;
+		padding:10px;
+		background-color:rgb(51, 153, 204);
+		border:none;
+		cursor:pointer;
+		font-weight:900;
+		font-size:16px;
+		color:rgb(225,225,225);
+	}
+
+/**************************end of LOGIN PAGE ******************************/
+/**************************LUCKY DRAW PAGE *******************************/
+	.daily-play{
+		position:relative;
+		width:800px;
+		top:200px;
+		left:200px;
+	}
+	.daily-play td{
+		vertical-align:top;
+	}
+	.coupon{
+		width:50px;
+		height:50px;
+	}
+	.flash-game{
+		float:right;
+	}
+	.daily-play input[type=submit],.daily-play input[type=button]{
+		cursor:pointer;
+		padding:5px 10px;
+		background-color:rgb(51, 153, 204);
+		border:none;
+	}
+	
+/**************************end of LUCKY DRAW PAGE *******************************/
+
+/************************* SIDE BAR CART **************************************/
+.side-show-cart{
+	cursor:pointer;
+	width:80px;
+	height:50px;
+	border-radius:10px 0 0 10px;
+	background-color:rgb(229,229,229);
+	position:fixed;
+	right:0px;
+	bottom:50px;
+	z-index:2;
+	-webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.side-show-cart img{
+	width:80px;
+	height:40px;
+}
+.flip{
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+}
+.side-hidden-cart{
+	width:150px; 
+	min-height:100px; 
+	background-color:rgb(229,229,229);
+	position:fixed;
+	right:0px;
+	bottom:50px;
+	border-radius:10px 0 0 10px;
+	padding:20px 0 50px 20px;
+	color:rgb(121, 184, 55);
+	-webkit-animation: moveToRight 0s ease both;
+	-moz-animation: moveToRight 0s ease both;
+	animation: moveToRight 0s ease both;
+	z-index:1;
+}
+.side-hidden-cart a{
+	background-color:rgb(51, 153, 204);
+	padding:5px;
+	position:absolute;
+	bottom:20px;
+	font-size:14px;
+	color:rgb(255,255,255);
+}
+.side-hidden-cart td{
+	color:rgb(68, 64, 65);
+	font-size:14px;
+}
+.show-cart{
+	-webkit-animation: moveFromRight .6s ease both;
+	-moz-animation: moveFromRight .6s ease both;
+	animation: moveFromRight .6s ease both;
+}
+.hide-cart{
+	-webkit-animation: moveToRight .6s ease both;
+	-moz-animation: moveToRight .6s ease both;
+	animation: moveToRight .6s ease both;
+}
+@-webkit-keyframes moveFromRight {
+	from { -webkit-transform: translateX(80%); }
+}
+@-webkit-keyframes moveToRight {
+	to { -webkit-transform: translateX(80%); }
+}
+/*************************end of SIDE BAR SHOPPING CART *********************/
