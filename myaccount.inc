@@ -1,7 +1,10 @@
 <?php
+if($username=="guess" ){
+	header("location:index.php");
+}
 $username = $_SESSION['username'];
 if(isset($_POST['PersonalInfoSubmitted'])){
-	update_customer_data($_SESSION['username'],$_POST['firstname'],$_POST['lastname'],$_POST['gender'],$_POST['year']."-".$_POST['month']."-".$_POST['day'],$_POST['contact'],$_POST['postalcode'],$_POST['address']);
+	update_customer_data($_SESSION['username'],$_POST['firstname'],$_POST['lastname'],$_POST['gender'],$_POST['dob'],$_POST['contact'],$_POST['postalcode'],$_POST['address']);
 }
 if(isset($_POST['AccountSettingSubmitted'])){
 	if(check_user_login($_SESSION['username'],$_POST['oldpassword'])){
@@ -13,14 +16,16 @@ if(isset($_POST['AccountSettingSubmitted'])){
 	}
 }
 $personal_info = get_customer_data($username);
-list($birth_y,$birth_m,$birth_d) = explode("-",$personal_info['dob']);
 ?>
 <div id="personal-info-error" style="display:<?php echo isset($errorexist)?"block":"none"?>" >
 <?php echo isset($errorexist)?$errormsg:"";?></div>
 <div class="personal-content">
     <div class="personal-image">
 		<div class="gold-line"></div>
-        <img src="images/profile.jpg" alt="Profile"/>
+        <img src="images/profile.png" alt="Profile"/>
+        <div class="change-profile-photo" id="change-profile-photo"><a href="#" id="change_profile">Change Profile</a></div>
+        <script type="text/javascript">
+		</script>
     </div>
     <div class="vertical-gray-line">
     </div>
@@ -37,30 +42,7 @@ list($birth_y,$birth_m,$birth_d) = explode("-",$personal_info['dob']);
              <td>Last Name</td><td><input type="text" required="required" pattern=".{1,25}" name="lastname" placeholder="Last Name" value="<?php echo $personal_info['lastname'];?>"/></td>
         </tr>
         <tr>
-            <td>Date of Birth</td><td><select name="year">
-                                            <?php for($i= date("Y"); $i> 1950; $i--) {?>
-                                            <option <?php if($i == (int)$birth_y) echo "selected";?> value="<?php echo $i;?>"><?php echo $i; ?></option>
-                                            <?php }?>
-                                       </select>
-                                       <select name="month">
-                                       <?php 
-									   	$month=array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
-										for($i = 0; $i<12 ;$i++){
-									   ?>
-                                            <option <?php if($i+1 == (int)$birth_m) echo "selected";?> value="<?php echo $i+1;?>"><?php echo $month[$i]; ?></option>
-                                       <?php
-										}
-									   ?>
-                                       </select>
-                                       <select name="day">
-                                            <?php
-											for($i=1; $i<=31;$i++){
-											?>
-                                            <option <?php if($i == (int)$birth_d) echo "selected";?> value="<?php echo $i;?>"><?php echo $i;?></option>
-                                            <?php
-											}
-											?>
-                                       </select>
+            <td>Date of Birth</td><td><input type="date" name="dob" value="<?php echo $personal_info['dob'];?>" required="required" />
                                   </td>
         </tr>
         <tr>
@@ -109,6 +91,7 @@ list($birth_y,$birth_m,$birth_d) = explode("-",$personal_info['dob']);
             <td colspan="2"><input type="submit" value="Submit" class="blue-bg"/></td>
         </tr>
         <input type="hidden" name="newpassword" id="newpassword"/>
+        <input type="file" name="photo" id="photo" style="display:none" />
         </form>
         </table>
 </div>
@@ -123,4 +106,5 @@ function validatePassword(){
 	}
 	$('newpassword').val($('#newpassword1').val());
 }
+$('#change_profile').click(function(){$('#photo').click()});
 </script>

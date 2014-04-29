@@ -1,6 +1,6 @@
 <div class="gray-line">
 <div class="logo">
-  <a href="#">
+  <a href="#" class="pageslide-animation">
     <img src="images/logo.png" alt="The Mobile Market">
   </a>
   <a href="#"><strong>The Mobile Market</strong>
@@ -10,25 +10,25 @@
 <nav>
   <ul>
     <li>
-      <a href="?home" class="<?php  if(get_current_page_name() == "home")echo "current-page"?>">Home </a>
+      <a href="?home" class="<?php  if(get_current_page_name() == "home")echo "current-page"?> pageslide-animation">Home </a>
     </li>
     <li>
-      <a href="?apple" class="<?php if(get_current_page_name()== "apple") echo "current-page"?>">Apple</a>
+      <a href="?apple" class="<?php if(get_current_page_name()== "apple") echo "current-page"?> pageslide-animation">Apple</a>
     </li>
     <li>
-      <a href="?samsung" class="<?php if(get_current_page_name()== "samsung") echo "current-page"?>">Samsung</a>
+      <a href="?samsung" class="<?php if(get_current_page_name()== "samsung") echo "current-page"?> pageslide-animation">Samsung</a>
     </li>
     <li>
-      <a href="?others" class="<?php if(get_current_page_name()== "others") echo "current-page"?>">Accessories</a>
+      <a href="?others" class="<?php if(get_current_page_name()== "others") echo "current-page"?> pageslide-animation">Accessories</a>
     </li>
     <li>
-      <a href="#" class="<?php if(get_current_page_name()== "info") echo "current-page"?>">Info</a>
-      <ul>
+      <a href="#" class="<?php if(get_current_page_name()== "info") echo "current-page"?> pageslide-animation">Info</a>
+      <ul class="submenu">
         <li>
-          <a href="?feedback" class="<?php if(get_current_page_name()== "feedback") echo "current-page"?>">Feedback</a>
+          <a href="?feedback" class="<?php if(get_current_page_name()== "feedback") echo "current-page"?> pageslide-animation">Feedback</a>
         </li>
         <li>
-          <a href="#" class="<?php if(get_current_page_name()== "location") echo "current-page"?>">Location</a>
+          <a href="#" class="<?php if(get_current_page_name()== "location") echo "current-page"?> pageslide-animation">Location</a>
         </li>
       </ul>
     </li>

@@ -16,7 +16,7 @@
         margin: 0px;
         font-family: Raleway;
         color: rgb(56, 56, 56);
-
+		overflow-x:hidden;
       }
       body {
         background-color: transparent;
@@ -111,6 +111,53 @@
         float: none;
         position: relative;
       }
+	  nav .submenu{
+		  background-image:url(../images/list-pointer.png);
+		  background-repeat:no-repeat;
+		  background-position:30px 0px;
+		  padding-top:20px;
+	  }
+.page-SlideOut {
+	-webkit-animation: SlideOut 1s both ease;
+	-moz-animation: SlideOut 1s both ease;
+	animation: SlideOut 1s both ease;
+}
+.page-SlideIn {
+	-webkit-animation: SlideIn 1s both ease;
+	-moz-animation: SlideIn 1s both ease;
+	animation: SlideIn 1s both ease;
+}	
+@-webkit-keyframes SlideOut {
+	25% { opacity: .5; -webkit-transform: translateZ(-500px); }
+	75% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(-200%); }
+	100% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(-200%); }
+}
+@-moz-keyframes SlideOut {
+	25% { opacity: .5; -moz-transform: translateZ(-500px); }
+	75% { opacity: .5; -moz-transform: translateZ(-500px) translateX(-200%); }
+	100% { opacity: .5; -moz-transform: translateZ(-500px) translateX(-200%); }
+}
+@keyframes SlideOut {
+	25% { opacity: .5; transform: translateZ(-500px); }
+	75% { opacity: .5; transform: translateZ(-500px) translateX(-200%); }
+	100% { opacity: .5; transform: translateZ(-500px) translateX(-200%); }
+}
+
+@-webkit-keyframes SlideIn {
+	0%, 25% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(200%); }
+	75% { opacity: .5; -webkit-transform: translateZ(-500px); }
+	100% { opacity: 1; -webkit-transform: translateZ(0) translateX(0); }
+}
+@-moz-keyframes SlideIn {
+	0%, 25% { opacity: .5; -moz-transform: translateZ(-500px) translateX(200%); }
+	75% { opacity: .5; -moz-transform: translateZ(-500px); }
+	100% { opacity: 1; -moz-transform: translateZ(0) translateX(0); }
+}
+@keyframes SlideIn {
+	0%, 25% { opacity: .5; transform: translateZ(-500px) translateX(200%); }
+	75% { opacity: .5; transform: translateZ(-500px); }
+	100% { opacity: 1; transform: translateZ(0) translateX(0); }
+}
       
       .justify {
         text-align: justify;
@@ -171,66 +218,10 @@
 		  height:25px;
 	  }
 	  
-	  	header {
-	position:fixed;
-	top:0px;
-	right:10px;
-	z-index:3;
-	display: block;
-	text-align: right;
-	padding: 10px 10px;
-	height: 25px;
-	width: 100px;
-	cursor: pointer;
-	border: 1px solid rgb(56,56,56);
-	font-size:13px;
-	background-color:rgb(56,56,56);
-	color:rgb(225,225,225);
-	border-radius:0 0 10px 10px;
-	}
-	header a{
-	color:rgb(225,225,225);
-	-webkit-transition: color 0.5s ease 0s;
-	transition: color 0.5s ease 0s;
-	}
-	header a:hover{	
-		color: rgb(138, 209, 206);
-	}
-	header:hover ul {
-	display: block;
-	-webkit-animation: moveFromTop .6s ease both;
-	-moz-animation: moveFromTop .6s ease both;
-	animation: moveFromTop .6s ease both;
-	}
-	header ul {
-	display:none;
-	width: 100px;
-	background-color:rgb(56,56,56);
-	padding: 10px 10px;
-	margin-left: -11px;
-	margin-top: -20px;
-	border: 1px solid rgb(56,56,56);
-	box-shadow: 0px 13px 25px rgba(0,0,0, 0.2);
-	border-radius:0 0 10px 10px;
-	}
-	
-	header ul li {
-	list-style-type: none;
-	display: block;
-	font-size: 13px;
-	height: 20px;
-	padding: 5px 0;
-	}
-@-webkit-keyframes moveFromTop {
-	from { -webkit-transform: translateY(-100%); }
-}
-@-webkit-keyframes moveToTop {
-	to { -webkit-transform: translateY(-100%); }
-}	
 		.right-align{
 		text-align:right;
 	}
-      input[type="text"],input[type="email"],input[type="password"],input[type="tel"],input[type="number"] {
+      input[type="text"],input[type="email"],input[type="password"],input[type="tel"],input[type="number"],input[type="date"] {
       	height:30px;
       	font-size:16px;
         font-family: Raleway;
@@ -254,7 +245,9 @@
         border: 0px solid transparent;
         resize:none;
       }
-	
+	.favourite{
+		
+	}
 /************************ End For EVERY PAGE *********************************/
 /************************ start for HOME PAGE ********************************/
       .circle {
@@ -337,6 +330,9 @@
         padding: 0px 250px;
         text-align: justify;
       }
+	  .page-content p > big{
+		  font-size:40px;
+	  }
       .feedback table{
         padding-left:240px;
       }
@@ -406,25 +402,40 @@
         text-align: right;
         background-color: rgb(205, 185, 156);
       }
-      .favourite img {
+      .favouriteIcon {
         z-index: 1;
         position: relative;
         float: left;
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
       }
-	  #product-add-to-cart{
-		  position:absolute;
-		  top:180px;
-		  left:100px;
-		  background-color:rgb(229,229,229);
+	  #product-add-to-cart,  #product-remove-from-cart{
+		  display:none;
 		  width:500px;
-		  height:100px;
+		  height:70px;
 		  padding:10px;
 	  }
-	  #product-add-to-cart input[type=submit]{
+	  #product-add-to-cart input[type=submit], #product-remove-from-cart input[type=submit]{
 		  padding:10px;
 		  cursor:pointer;
+		  background-color:rgb(146, 205, 0);
+		  border:none;
+		  float:right;
+	  }
+	  #product-add-to-cart td,#product-remove-from-cart td{
+		  min-width:100px;
+	  }
+	  #popupmessage{
+		padding:25px; 
+		font-size:150%; 
+		text-align:center;
+		display:none;
+	  }
+	  #popupmessage input[type=button]{
+		  cursor:pointer;
+		  padding:10px 20px 10px 20px;
+		background-color:rgb(51, 153, 204);
+		border:none;
 	  }
 /************************ end for PRODUCT PAGE *************************/
 
@@ -435,12 +446,26 @@
 		left:220px;
 		top:240px;
 	}
+	.personal-image img:hover + .change-profile-photo,.change-profile-photo:hover{
+		display:block;
+		background-color:rgb(0,0,0);
+		opacity:.5;
+		text-align:center;
+	}
+	.change-profile-photo a{
+		position:relative;
+		top:50px;
+		color:rgb(225,225,225);
+	}
+	.change-profile-photo{
+		display:none;
+	}
 	.personal-image{
 		background-color:rgb(146, 205, 0);
 		width:800px;
 		height:150px;
 	}
-	.personal-image img{
+	.personal-image img,.change-profile-photo{
 		position:absolute;
 		width:120px;
 		height:120px;
@@ -529,7 +554,17 @@
 	.cart-item td{
 		padding:10px;
 	}
-	.total-amount{
+	.cart-item .smallwidth{
+		width:30px;
+	}
+	.cart-item .mediumwidth{
+		width:100px;
+	}
+	.cart-item .largewidth{
+		width:200px;
+	}
+	
+	.extra-amount{
 		padding:10px;
 		height:30px;
 		width:200px;
@@ -550,16 +585,7 @@
 	.cart-green-bg{
 		background-color:rgb(146, 205, 0);
 	}
-	.shopping-cart input[type=button]{
-		cursor:pointer;
-        padding: 10px;
-        font-size: 16px;
-		font-weight:bold;
-        color: rgb(225,225,225);
-		background-color:rgb(255,0,0);
-        border: 1px solid rgb(255, 255, 255);
-		margin:10px;
-	}
+
 	.shopping-cart input[type=submit]{
 		background-color:rgb(59, 186, 181);
 		cursor:pointer;
@@ -567,9 +593,36 @@
         font-size: 16px;
 		font-weight:bold;
         color: rgb(255,255,255);
-		border: 1px solid rgb(255, 255, 255);
 		float:right;
+		border:none;
 	}
+	.shopping-cart input[type=submit]:hover{
+		-webkit-animation:PaymentButton 3s infinite;
+		animation:PaymentButton 3s infinite;		
+	}
+	.shopping-cart img{
+		float:right;
+		cursor:pointer;
+	}
+@-moz-keyframes PaymentButton /* Firefox */
+	{
+	0%   {background-color:rgb(59, 186, 181);}
+	25%   {background-color: rgb(51, 153, 204);}
+	50%	   {background-color: rgb(146, 205, 0);};
+	75%    {background-color: rgb(247, 200, 14);}
+	100%   {background-color:rgb(59, 186, 181);}
+	}
+	 
+@-webkit-keyframes PaymentButton /* Firefox */
+	{
+	0%   {background-color:rgb(59, 186, 181);}
+	25%   {background-color: rgb(51, 153, 204);}
+	50%	   {background-color: rgb(146, 205, 0);};
+	75%    {background-color: rgb(247, 200, 14);}
+	100%   {background-color:rgb(59, 186, 181);}
+	}
+	 	
+	
 /***************************end of CHECKOUT PAGE**********************************/
 /************************** LOGIN PAGE ******************************/
 
@@ -588,35 +641,19 @@
 		-moz-animation:loginanimation 5s infinite; 
 		-webkit-animation:loginanimation 5s infinite;
 	}
-.login-error{
-		-moz-animation:loginanimation 1s infinite; 
-		-webkit-animation:loginanimation 1s infinite;
 
-}
-.error-msg{
-	position:relative;
-	width:300px;
-	margin-left:auto;
-	margin-right:auto;
-	top:230px;
-	padding:10px;
-	text-align:center;
-	background-color:red;
-	color:white;
-	border-radius:20px 0 20px 0;
-}
 @-moz-keyframes loginanimation /* Firefox */
 	{
-	0%   {background:url(../images/login.png);}
-	50%   {background:url(../images/loginred.png);}
-	100%   {background:url(../images/login.png);}
+	0%   {background:url(../images/login1.png);}
+	50%   {background:url(../images/login2.png);}
+	100%   {background:url(../images/login1.png);}
 	}
-	 
+
 @-webkit-keyframes loginanimation /* Firefox */
 	{
-	0%   {background:url(../images/login.png);}
-	50%   {background:url(../images/loginred.png);}
-	100%   {background:url(../images/login.png);}
+	0%   {background:url(../images/login1.png);}
+	50%   {background:url(../images/login2.png);}
+	100%   {background:url(../images/login1.png);}
 	}	
 	.login input,.login label{
 		position:relative;
@@ -663,12 +700,12 @@
 
 /************************* SIDE BAR CART **************************************/
 .side-show-cart{
+	position:fixed;
 	cursor:pointer;
 	width:80px;
 	height:50px;
 	border-radius:10px 0 0 10px;
 	background-color:rgb(229,229,229);
-	position:fixed;
 	right:0px;
 	bottom:50px;
 	z-index:2;
@@ -688,7 +725,7 @@
 	filter: FlipH;
 }
 .side-hidden-cart{
-	width:150px; 
+	width:180px; 
 	min-height:100px; 
 	background-color:rgb(229,229,229);
 	position:fixed;
@@ -702,6 +739,9 @@
 	animation: moveToRight 0s ease both;
 	z-index:1;
 }
+.side-hidden-cart img{
+	cursor:pointer;
+}
 .side-hidden-cart a{
 	background-color:rgb(51, 153, 204);
 	padding:5px;
@@ -713,6 +753,8 @@
 .side-hidden-cart td{
 	color:rgb(68, 64, 65);
 	font-size:14px;
+	padding:3px;
+	border-bottom:1px dotted black;
 }
 .show-cart{
 	-webkit-animation: moveFromRight .6s ease both;
@@ -731,3 +773,171 @@
 	to { -webkit-transform: translateX(80%); }
 }
 /*************************end of SIDE BAR SHOPPING CART *********************/
+/*************************PAYMENT PAGE**********************************/
+	.card-info{
+		position:relative;
+		top:200px;
+		margin-left:200px;
+		width:800px;
+	}
+	.card-info table{
+		width:100%;
+		background-color:rgb(51, 153, 204);
+		transition: background 0.5s linear;
+	    -webkit-transition: background 0.5s linear;
+    	-moz-transition: background 0.5s linear;
+	}
+	.card-info table td{
+		padding:10px 25px 10px 30px;
+	}
+	#master-card{
+		background-color:rgb(51, 153, 204);
+		cursor:pointer;
+		min-width:50px;
+		float:right;
+		padding:10px;
+		margin-left:3px;
+		border-radius:10px 10px 0 0;
+	}
+	#visa-card{
+		background-color:rgb(146, 205, 0);
+		cursor:pointer;
+		min-width:50px;
+		float:right;
+		padding:10px;
+		margin-left:3px;
+		border-radius:10px 10px 0 0;
+	}
+	#purchase-btn{
+		padding:10px 20px 10px 20px;
+		cursor:pointer;
+		background-color:rgb(51, 153, 204);
+		color: rgb(225,225,225);
+		font-size: 20px;
+		border: none;
+		float:right;
+		margin-top:30px;
+		transition: all 3s ease;
+	    -webkit-transition: all 3s ease;
+    	-moz-transition: all 3s ease;
+	}
+	#purchase-btn:hover{
+		background-color:rgb(247, 200, 14);
+		color:rgb(56,56,56);
+	}
+	.card-info .invalid-input{
+		background-color:rgb(255, 174, 174);
+		border:1px solid #F00;
+		box-shadow:inset;
+	}
+/*************************end of PAYMENT PAGE**********************************/
+/****************************WISHLIST PAGE***********************************/
+.wishlist{
+	position:relative;
+	width:900px;
+	top:230px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:100px;
+	min-height:300px;
+}
+.pin{
+	cursor:pointer;
+	position: absolute;
+	top: -25px;
+	left: -12px;
+}
+.pin:hover{
+	cursor:pointer;
+	position: absolute;
+	top: -35px;
+	left: -12px;
+}
+.tear-note{
+	-webkit-animation: moveToBottom 1s ease both;
+	-moz-animation: moveToBottom 1s ease both;
+	animation: moveToBottom 1s ease both;
+}
+@-webkit-keyframes moveToBottom {
+	to { -webkit-transform: translateY(200%); }
+}
+.wishlist .sticky-note{
+	display:inline-block;
+	width:250px;
+	height:250px;
+	margin:20px;
+}
+.sticky-note h1{
+	font-size:16px;
+	padding-left:20px;
+	padding-right:10px;
+	text-align:center;
+}
+.sticky-note h2{
+	font-size:14px;
+	padding-left:20px;
+	padding-right:10px;
+	position:absolute;
+	bottom:30px;
+}
+.wishlist .thumbnail{
+	position: absolute;
+	width:150px;
+	height:150px;
+	top:40px;
+	left:20px;
+}
+.rotate5{
+	-webkit-transform: rotate(5deg); /* Chrome, Safari, Opera */
+	transform: rotate(5deg);
+}
+.rotate-5{
+	-webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
+	transform: rotate(-5deg);
+}
+.rotate10{
+	-webkit-transform: rotate(10deg); /* Chrome, Safari, Opera */
+	transform: rotate(10deg);
+}
+.rotate-10{
+	-webkit-transform: rotate(-10deg); /* Chrome, Safari, Opera */
+	transform: rotate(-10deg);
+}
+.yello-note{
+	background-image:url(../images/yellow-note.png);
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+.red-note{
+	background-image:url(../images/red-note.png);
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+.blue-note{
+	background-image:url(../images/blue-note.png);
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+.purple-note{
+	background-image:url(../images/purple-note.png);
+	background-size:cover;
+	background-repeat:no-repeat;
+	color:rgb(229,229,229);
+}
+.brown-note{
+	background-image:url(../images/brown-note.png);
+	background-size:cover;
+	background-repeat:no-repeat;
+	color:rgb(229,229,229);
+}
+.green-note{
+	background-image:url(../images/green-note.png);
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+.gray-note{
+	background-image:url(../images/gray-note.png);
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+/****************************end of WISHLIST PAGE***********************************/

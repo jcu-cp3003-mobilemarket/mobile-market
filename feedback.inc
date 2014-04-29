@@ -7,7 +7,7 @@ $feedback = get_page_data("feedback");
         </h1>
 
         <hr/>
-        <p>	<?php echo $feedback['content']?></p>
+        <?php echo $feedback['content']?>
         <form name="" class="feedback">
         <table>
         <tr>

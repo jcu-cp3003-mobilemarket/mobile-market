@@ -6,7 +6,7 @@
     <img src="images/call.png" alt="">
   </div>	<strong>Call</strong>
 
-  <br><?php echo get_footer_data("Call"); ?>
+  <br/>T : <?php echo get_footer_data("Tel"); ?><br />F : <?php echo get_footer_data("Fax");?>
   
   </div>
 <div class="footer-item">
@@ -14,7 +14,7 @@
     <img src="images/feedback.png" alt="">
   </div>	<strong>Contact</strong>
 
-  <br><?php echo get_footer_data("Contact"); ?>
+  <br/><?php echo get_footer_data("Contact"); ?>
   </div>
 <div class="footer-item">
   <div>

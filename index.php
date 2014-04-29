@@ -1,6 +1,6 @@
 <?php 	
-session_start();
 include("databaseconnect.inc");
+$current_page_name = get_current_page_name();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -10,13 +10,17 @@ include("databaseconnect.inc");
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="generator" content="Google Web Designer 1.0.4.0305">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <?php
-	include("importjs.inc");
-	?>
-	
+    <link rel="stylesheet" type="text/css" href="css/header.css"/>
+    <script type='text/javascript' src='js/popup.js'></script>
+	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+    <script type="text/javascript">
+	$(document).ready(function(){
+		$('.pageslide-animation').click(function(){$('body').removeClass('page-SlideIn');$('body').addClass('page-SlideOut');});
+	});
+	</script>
   </head>
   
-  <body>
+  <body class="page-SlideIn">
 	  <?php
 	  include("header.inc");
 	  ?>  
@@ -25,37 +29,53 @@ include("databaseconnect.inc");
 	  include("menu.inc");
 	  ?>
       <?php
-	        if(get_current_page_name() == "home")
-			  include("homepage.inc");
-
-	  		if(get_current_page_name() == "apple"){
+	  switch($current_page_name){
+		case "apple":
 				$producer = "Apple";
 				include("product.inc");
-			}
-			if(get_current_page_name() == "samsung"){
+				break;
+		case "samsung":
 				$producer = "Samsung";
 				include("product.inc");
-			}
-			if(get_current_page_name() == "others"){
+				break;
+		case "others":
 				$producer = "Others";
 				include("product.inc");
-			}
-			if(get_current_page_name() == "feedback"){
+				break;
+		case "feedback":
 				include("feedback.inc");
-			}
-			if(get_current_page_name() == "login"){
+				break;
+		case "login":
 				include("login.inc");
-			}
-			if(get_current_page_name() == "myaccount"){
+				break;
+		case "myaccount":
 				include("myaccount.inc");
-			}
-			if(get_current_page_name() == "daily"){
+				break;
+		case "daily":
 				include("daily.inc");
-			}
+				break;
+		case "cart":
+				include("cart.inc");
+				break;
+		case "payment":
+				include("payment.inc");
+				break;
+		case "wishlist":
+				include("wishlist.inc");
+				break;
+		case "register":
+				include("login.inc");
+				break;
+		default;
+		include("homepage.inc");
+	  }
 	  ?>
     </div>
+
     <?php
-	include("sidebarcart.inc");
+	if(request_to_show_sidebar_cart()){
+		include("sidebarcart.inc");
+	}
 	?>
 	<?php 
 	include("footer.inc");

@@ -1,0 +1,59 @@
+@charset "utf-8";
+	  	header {
+	position:fixed;
+	top:0px;
+	right:10px;
+	z-index:3;
+	display: block;
+	text-align: right;
+	padding: 10px 10px;
+	height: 25px;
+	width: 100px;
+	cursor: pointer;
+	border: 1px solid rgb(56,56,56);
+	font-size:13px;
+	background-color:rgb(56,56,56);
+	color:rgb(225,225,225);
+	border-radius:0 0 10px 10px;
+	}
+	header a{
+	color:rgb(225,225,225);
+	-webkit-transition: color 0.5s ease 0s;
+	transition: color 0.5s ease 0s;
+	}
+	header a:hover{	
+		color: rgb(138, 209, 206);
+	}
+	header:hover ul {
+	display: block;
+	-webkit-animation: moveFromTop .6s ease both;
+	-moz-animation: moveFromTop .6s ease both;
+	animation: moveFromTop .6s ease both;
+	}
+	header ul {
+	display:none;
+	width: 100px;
+	background-color:rgb(56,56,56);
+	padding: 10px 10px;
+	margin-left: -11px;
+	margin-top: -20px;
+	border: 1px solid rgb(56,56,56);
+	box-shadow: 0px 13px 25px rgba(0,0,0, 0.2);
+	border-radius:0 0 10px 10px;
+	}
+	
+	header ul li {
+	list-style-type: none;
+	display: block;
+	font-size: 13px;
+	height: 20px;
+	padding: 5px 0;
+	}
+@-webkit-keyframes moveFromTop {
+	from { -webkit-transform: translateY(-100%); }
+}
+@-webkit-keyframes moveToTop {
+	to { -webkit-transform: translateY(-100%); }
+}	
+/* CSS Document */
+
