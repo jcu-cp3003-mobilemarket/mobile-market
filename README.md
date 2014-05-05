@@ -18,5 +18,10 @@ syncronized side cart --> shopping cart that show right side of the page will au
 private shopping cart --> shopping cart is allowed only customers who already login
 prevent access to invalid  and file --> redirect when error 404 happen
 favourite button work well --> show how many people favourite to the product and show is he/she already favourite
+adminpanel--> can configuire and update data for website
+all images can be changed from admin panel
+all contact addresses can be changed from admin panel
+admin can create event that will remaind him later
 
+need to set appropriate memory_limit" or "upload_max_filesize"in php.ini
 ..communication between product and cart improved..

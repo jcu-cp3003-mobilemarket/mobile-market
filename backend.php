@@ -1,4 +1,8 @@
 <?php
+//check ajax request
+if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])){
+		die();
+}
 require("databaseconnect.inc");
 if(isset($_POST['loginFormSubmitted']) && isset($_POST['username']) && isset($_POST['password'])){
 	$username = $_POST['username'];
@@ -85,66 +89,75 @@ if(isset($_POST['FeedbackEdited'])){
 	unset($arr);
 
 }
-if(isset($_POST['oldURL']) && isset($_POST['newURL'])){
-	if(isset($_FILES["newURL"]) && $_FILES["newURL"]["error"]== UPLOAD_ERR_OK)
-{
-	############ Edit settings ##############
-	$UploadDirectory	= 'css/uploads/'; //specify upload directory ends with / (slash)
-	##########################################
-	
-	/*
-	Note : You will run into errors or blank page if "memory_limit" or "upload_max_filesize" is set to low in "php.ini". 
-	Open "php.ini" file, and search for "memory_limit" or "upload_max_filesize" limit 
-	and set them adequately, also check "post_max_size".
-	*/
-	
-	//check if this is an ajax request
-	if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])){
-		die();
-	}
-	
-	
-	//Is file size is less than allowed size.
+if(isset($_POST['oldURL']) && isset($_FILES['newURL'])){
+	if(isset($_FILES["newURL"]) && $_FILES["newURL"]["error"]== UPLOAD_ERR_OK){
+	$UploadDirectory	= 'images/';
 	if ($_FILES["newURL"]["size"] > 5242880) {
 		die("File size is too big!");
 	}
-	
-	//allowed file type Server side check
-	switch(strtolower($_FILES['newURL']['type']))
-		{
-			//allowed file types
-            case 'image/png': 
+	$file_name  = $_FILES['newURL']['name'];
+	switch(strtolower($_FILES['newURL']['type'])){
 			case 'image/gif': 
+				if(move_uploaded_file($_FILES['newURL']['tmp_name'], $UploadDirectory.$file_name )){
+					   $img = imagecreatefromgif($UploadDirectory.$file_name);
+				}
+				else{
+					die('Error uploading File!');
+				}
+				break;
 			case 'image/jpeg': 
 			case 'image/pjpeg':
-			case 'text/plain':
-			case 'text/html': //html file
-			case 'application/x-zip-compressed':
-			case 'application/pdf':
-			case 'application/msword':
-			case 'application/vnd.ms-excel':
-			case 'video/mp4':
+			case 'image/pjpg':
+			case 'image/jpg':
+				if(move_uploaded_file($_FILES['newURL']['tmp_name'], $UploadDirectory.$file_name )){
+					   $img = imagecreatefromjpeg($UploadDirectory.$file_name);
+				}
+				else{
+					die('Error uploading File!');
+				}
 				break;
+			case 'image/png': 
+				if(move_uploaded_file($_FILES['newURL']['tmp_name'], $_POST['oldURL'])){
+					die("success");
+				}else{
+					die('Error uploading File!');
+				}
 			default:
 				die('Unsupported File!'); //output error
 	}
-	
-	$File_Name          = strtolower($_FILES['newURL']['name']);
-	$File_Ext           = substr($File_Name, strrpos($File_Name, '.')); //get file extention
-	$Random_Number      = rand(0, 9999999999); //Random number to be added to name.
-	$NewFileName 		= $Random_Number.$File_Ext; //new file name
-	
-	if(move_uploaded_file($_FILES['newURL']['tmp_name'], $UploadDirectory.$NewFileName ))
-	   {
-		die('Success! File Uploaded.');
-	}else{
-		die('error uploading File!');
+	if(imagepng($img,$_POST['oldURL'])){
+		unlink($UploadDirectory.$file_name);
+		die("success");
 	}
-	
+	else{
+		unlink($UploadDirectory.$file_name);
+		die("Error cannot convert to png format");
+	}
+	echo "Unknown error!";
+	}
+	else{
+		die('Something wrong with upload! Is "upload_max_filesize" set correctly?');
+	}
 }
-else
-{
-	die('Something wrong with upload! Is "upload_max_filesize" set correctly?');
+if(isset($_POST['EventObjectSubmitted'])){
+	if(isset($_POST['add'])){
+		 add_new_event($_POST['id'],$_POST['title'],$_POST['start'],$_POST['end'],$_POST['allday'],$_POST['color']);
+	}
+	else if(isset($_POST['update'])){
+		update_event($_POST['id'],$_POST['start'],$_POST['end'],$_POST['allday']);
+	}
+	else if(isset($_POST['remove'])){
+		remove_event($_POST['id']);
+	}	
+
 }
+if(isset($_POST['EventNotification'])){
+	$events = get_event_data();
+	$today = strtotime("now");
+	foreach($events as $event){
+		 if(strtotime($event['start'])<=$today){
+			 echo $event['title'];
+		 }
+	}
 }
 ?>

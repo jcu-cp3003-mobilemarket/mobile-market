@@ -1,3 +1,4 @@
+<div id="dashboard" >
 	<div class="small-box bg-aqua">
         <div class="inner">
             <h3>150</h3>
@@ -46,3 +47,4 @@
         <img src="images/discount.png" alt="" class="icon"/> 	
         <a href="#" class="small-box-footer">More info -></a>
 	</div>
+</div>

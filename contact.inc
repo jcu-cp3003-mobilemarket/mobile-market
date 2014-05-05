@@ -1,3 +1,4 @@
+<?php require("databaseconnect.inc") ?>
 <table class="wide">
 <tr>
 <td>Facebook Page Address </td><td>: <input class="wide float-right" type="text" name="facebook" required="required" value="<?php echo get_footer_data('facebook');?>

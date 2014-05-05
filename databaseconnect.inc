@@ -23,11 +23,6 @@ function get_current_page_name(){
 	if($filename== "index.php?payment" || $filename == "?payment") return "payment";
 	if($filename== "index.php?wishlist" || $filename == "?wishlist") return "wishlist";
 	if($filename== "index.php?register" || $filename == "?wishlist") return "register";
-	if($filename== trim($_SERVER['REQUEST_URI'],"/") || $filename == "admin.php"|| $filename=="admin.php?dashboard") return "dashboard";
-	if($filename== "admin.php?contact" || $filename == "?contact") return "contact";
-	if($filename== "admin.php?announcement" || $filename == "?announcement") return "announcement";
-	if($filename== "admin.php?calendar" || $filename == "?calendar") return "calendar";
-	if($filename== "admin.php?images" || $filename == "?images") return "images";
 	header("location:index.php");
 }
 
@@ -251,6 +246,43 @@ function add_to_dailychance($id){
 function remove_from_dailychance($id){
 	global $db;
 	$db->query("DELETE FROM `coupon` WHERE id = '$id'");
+}
+function add_new_event($id,$title,$start,$end,$allday,$color){
+	global $db;
+	if($db->query("INSERT INTO `event`(`id`, `title`,`start`, `end`, `isallday`, `color`) VALUES ('$id','$title','$start','$end','$allday','$color')")){
+		return true;
+	}
+	return false;
+}
+function update_event($id,$start,$end,$allday){
+	global $db;
+	if($db->query("UPDATE `event` SET `start`='$start',`end`='$end',`isallday`='$allday' WHERE id='$id'")){
+		return true;
+	}
+	return false;
+}
+function remove_event($id){
+	global $db;
+	if($db->query("DELETE FROM `event` WHERE id='$id'")){
+		return true;
+	}
+	return false;
+}
+function get_event_data(){
+	global $db;
+	$arr = array();
+	if($result = $db->query("SELECT * FROM `event`")){
+		while($row = $result->fetch_array()){
+			$temp['id'] = $row['id'];
+			$temp['title'] = $row['title'];
+			$temp['start'] = $row['start'];
+			$temp['end'] = $row['end'];
+			$temp['allday'] = $row['isallday'];
+			$temp['color'] = $row['color'];
+			$arr[] = $temp;
+		}
+	}
+	return $arr;	
 }
 $db = connect_to_db();
 date_default_timezone_set('Asia/Singapore');

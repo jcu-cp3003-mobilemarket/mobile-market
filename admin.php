@@ -1,6 +1,5 @@
 <?php
 include("databaseconnect.inc");
-$page_name = get_current_page_name();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,9 +8,13 @@ $page_name = get_current_page_name();
 <link rel="stylesheet" type="text/css" href="css/header.css"/>
 <link rel="stylesheet" type="text/css" href="css/notification.css" />
 <link rel="stylesheet" type="text/css" href="css/admin.css"/>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-<script src="js/ttw-notification-menu.js" type="text/javascript"></script>
-<script src="js/jquery-ui-1.8.14.custom.min.js" type="text/javascript"></script>
+<link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+<link href="css/fullcalendar/fullcalendar.print.css" rel="stylesheet" type="text/css" media='print' />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/ckeditor/ckeditor.js" ></script>
+
 <title>Admin</title>
 </head>
 
@@ -21,24 +24,12 @@ include("adminpanel.inc");
 ?>
 <div id="wrapper">
 <?php
-switch($page_name){
-	case "dashboard":
-		include("dashboard.inc");
-		break;
-	case "contact":
-		include("contact.inc");
-		break;
-	case "announcement":
-		include("announcement.inc");
-		break;
-	case "images":
-		include("images.inc");
-		break;
-}
+include("dashboard.inc");
 ?>
 </div>
 
 <script type="text/javascript">
+$('aside').height($('#wrapper').height()+150);
 $('.toggleview').click(function(){
 	if(!$('aside').hasClass('page-SlideOut')){
 		$('aside').removeClass('page-SlideIn');
@@ -60,25 +51,31 @@ $('.toggleview').click(function(){
 		alltag.css('width',(w-200)+'px');
 		}
 	});
-	
-		   var notifications = new $.ttwNotificationMenu({
-        notificationList:{
-            anchor:'item',
-            offset:'0 15'
-        }
-    });
 
-
-    notifications.initMenu({
-        projects:'#projects',
-        tasks:'#tasks',
-		clents:'#clients',
-		messages:'#messages',
-		hello:'#hello'
-    });
-	notifications.createNotification({category:'hello',message:'sample',icon:'images/notification-bg.png'});
-	notifications.createNotification({category:'hello',message:'sample',icon:'images/notification-bg.png'});
-		notifications.createNotification({category:'hello',message:'sample',icon:'images/notification-bg.png'});
+var pageURL = "dashboard.inc";
+$('.dashboard').click(function(){pageURL = "dashboard";});
+$('.contact').click(function(){pageURL = "contact";});
+$('.images').click(function(){pageURL = "images";});
+$('.announcement').click(function(){pageURL = "announcement";});
+$('.calendar').click(function(){pageURL = "calendar";});
+$('.menu-item').click(
+	function(){
+		$('.active').removeClass('active');
+		$('.'+pageURL+'').parent().addClass('active');
+		$('#wrapper').addClass("page-SlideOut");
+		$('#wrapper').removeClass("page-SlideIn").delay(100);
+		
+		$.ajax({
+			type:"GET",
+			url:pageURL+".inc",
+			success:function(data){
+				$('#wrapper').html(data);
+				$('#wrapper').removeClass("page-SlideOut");
+				$('#wrapper').addClass("page-SlideIn");
+				}
+		});
+		
+	});
 
 </script>
 

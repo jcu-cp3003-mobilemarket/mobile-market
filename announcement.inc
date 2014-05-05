@@ -1,4 +1,4 @@
-<script type="text/javascript" src="js/ckeditor/ckeditor.js" ></script>
+<?php require("databaseconnect.inc") ?>
 <div class="box">
     <div class="box-header bg-green">
         <h3 class="box-title">Welcome message for feedback page</h3>
